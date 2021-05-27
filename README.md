@@ -20,3 +20,8 @@
 - MediaPipe Holistic
 ( https://google.github.io/mediapipe/solutions/holistic.html)
 - Activarea celulelor folosind MediaPipe
+
+# Curs 4
+- Gest pentru modificarea BPM-ului
+- Invatarea si clasificarea de gesturi
+( https://github.com/tensorflow/tfjs-models/tree/master/knn-classifier)

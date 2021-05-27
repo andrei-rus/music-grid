@@ -53,6 +53,10 @@ export class Grid {
       [...cells].forEach((cell) => {
         cell.classList.remove('active');
       })
+      const gestureCells = this.gridContainer.getElementsByClassName('gesture-cell');
+      [...gestureCells].forEach((gestureCell) => {
+        gestureCell.remove();
+      })
     })
 
     this.gridContainer.append(resetBtn);
@@ -102,7 +106,8 @@ export class Grid {
     if (!this.isPlaying) return;
     const row = this.gridContainer.getElementsByClassName(this.rowClass)[this.currentPlayedRow]
     const cells = row.getElementsByClassName('grid-cell active');
-    [...cells].forEach((cell) => {
+    const gestureCells = row.getElementsByClassName('gesture-cell');
+    [...cells, ...gestureCells].forEach((cell) => {
       cell.classList.add('animate');
       setTimeout(
         () => cell.classList.remove('animate'),
@@ -116,5 +121,22 @@ export class Grid {
       this.currentPlayedRow++;
     }
     setTimeout(() => this.play(), 400);
+  }
+
+  addGestureCell(className) {
+    const row = this.gridContainer.getElementsByClassName(this.rowClass)[this.currentPlayedRow || 0];
+
+    if (row.getElementsByClassName('gesture-cell').length > 4) return;
+
+    const gestureCell = document.createElement('div');
+    gestureCell.classList.add(this.cellClass);
+    gestureCell.classList.add('gesture-cell');
+    gestureCell.classList.add(className);
+
+    gestureCell.addEventListener('click', () => {
+      gestureCell.remove();
+    })
+
+    row.append(gestureCell);
   }
 }

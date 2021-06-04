@@ -16,7 +16,7 @@ export default class App {
       cellClass: 'grid-cell'
     });
 
-    this.grid.init();
+    //this.grid.init();
   }
 
   initializeMediaPipe() {

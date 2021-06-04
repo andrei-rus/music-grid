@@ -124,7 +124,7 @@ export class Grid {
   }
 
   addGestureCell(className) {
-    const row = this.gridContainer.getElementsByClassName(this.rowClass)[this.currentPlayedRow || 0];
+   /*  const row = this.gridContainer.getElementsByClassName(this.rowClass)[this.currentPlayedRow || 0];
 
     if (row.getElementsByClassName('gesture-cell').length > 4) return;
 
@@ -137,6 +137,10 @@ export class Grid {
       gestureCell.remove();
     })
 
-    row.append(gestureCell);
+    row.append(gestureCell); */
+
+    let box = document.getElementById('box');
+    box.classList = '';
+    box.classList.add(className);
   }
 }
